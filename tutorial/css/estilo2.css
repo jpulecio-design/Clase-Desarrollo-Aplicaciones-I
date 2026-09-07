@@ -1,0 +1,35 @@
+nav ul {
+    list-style-type: none; /* Quitamos las viñetas */
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    display: inline; /* Los elementos están en una línea horizontal */
+    margin-right: 20px; /* Espaciado entre ítems */
+}
+
+nav a {
+    text-decoration: none; /* Quitar subrayado */
+    color: #000; /* Color del texto */
+    padding: 5px 10px; /* Espaciado interno */
+    transition: background-color 0.3s; /* Suavizar el cambio de fondo */
+}
+
+
+nav a:hover {
+    background-color: #ddd; /* Color de fondo al pasar el cursor */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+
+
+nav {
+    background-color: #f4f4f4; /* Fondo del menú */
+    padding: 10px 0;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center; /* Centrar ítems */
+}

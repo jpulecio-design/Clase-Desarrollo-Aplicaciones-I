@@ -1,0 +1,528 @@
+/* ============================================
+   ESTILOS BASE Y REINICIO (reset)
+   ============================================ */
+
+/* 
+   selector universal (*): elimina márgenes y rellenos por defecto 
+   que los navegadores aplican a todos los elementos, para tener 
+   un punto de partida consistente.
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*
+       box-sizing: border-box; hace que el ancho y alto 
+       incluyan el padding y el borde, facilitando el diseño 
+       de layouts sin cálculos extra.
+    */
+}
+
+/* 
+   selector de etiqueta body: establece la fuente base, 
+   el color de fondo y el color de texto principal.
+   La imagen sugiere un fondo oscuro con acentos naranjas/amarillos.
+*/
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Fuente moderna y legible */
+    background-color: #1a1a2e;
+    /* Fondo azul muy oscuro (casi negro) */
+    color: #eaeaea;
+    /* Texto gris claro para buen contraste */
+    line-height: 1.6;
+    /* Altura de línea para mejor legibilidad */
+    padding: 20px;
+    /* Espaciado interior general */
+}
+
+/* ============================================
+   HEADER (cabecera)
+   ============================================ */
+
+/*
+   header: barra superior con fondo semioscuro 
+   y un toque de color naranja (como el recuadro de la imagen).
+*/
+header {
+    background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
+    /*
+       Gradiente de azules oscuros que combina con el fondo,
+       pero añade profundidad.
+    */
+    border-bottom: 4px solid #e94560;
+    /*
+       Línea inferior en rojo/naranja intenso, 
+       similar al tono del botón "HTML" en la imagen.
+    */
+    padding: 20px 30px;
+    /* Espaciado interno */
+    border-radius: 12px 12px 0 0;
+    /*
+       Bordes redondeados solo arriba para integrarse 
+       con el resto del contenido.
+    */
+    margin-bottom: 20px;
+    /* Separación con el siguiente elemento */
+    display: flex;
+    /* Flexbox para alinear elementos internos */
+    justify-content: space-between;
+    /* Espacia el logo y la navegación */
+    align-items: center;
+    /* Centra verticalmente */
+    flex-wrap: wrap;
+    /* Permite que en pantallas pequeñas los elementos bajen */
+}
+
+/*
+   Estilo para el título o logo dentro del header.
+   Se asume que hay un <h1> o similar.
+*/
+header h1 {
+    font-size: 2rem;
+    /* Tamaño grande */
+    font-weight: 700;
+    /* Negrita */
+    color: #f5c842;
+    /* Amarillo/naranja como el texto "Tecnologias que usamos" */
+    text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+    /* Sombra sutil en tono naranja */
+    letter-spacing: 1px;
+    /* Espaciado entre letras para estilo moderno */
+}
+
+/*
+   Si el header contiene un eslogan o texto secundario.
+*/
+header p {
+    color: #a8a8b3;
+    /* Gris azulado claro */
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* ============================================
+   NAV (barra de navegación)
+   ============================================ */
+
+/*
+   nav: menú de navegación principal. 
+   Se usa flexbox para distribuir los enlaces horizontalmente.
+*/
+nav {
+    background-color: #0f3460;
+    /* Azul medio oscuro */
+    padding: 12px 20px;
+    border-radius: 30px;
+    /* Bordes muy redondeados (efecto píldora) */
+    display: flex;
+    flex-wrap: wrap;
+    /* Para que los enlaces bajen en móvil */
+    justify-content: center;
+    /* Centra los items */
+    gap: 20px;
+    /* Espacio entre enlaces */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    /* Sombra para dar relieve */
+    margin-bottom: 20px;
+    /* Separación con section */
+}
+
+/*
+   Estilo para los enlaces (<a>) dentro del nav.
+*/
+nav a {
+    color: #eaeaea;
+    /* Texto claro */
+    text-decoration: none;
+    /* Quita subrayado */
+    font-weight: 600;
+    /* Seminegrita */
+    padding: 8px 16px;
+    /* Área clicable amplia */
+    border-radius: 20px;
+    /* Bordes redondeados */
+    transition: all 0.3s ease;
+    /*
+       Transición suave para efectos hover,
+       afecta color, fondo y transformaciones.
+    */
+    background-color: transparent;
+    /* Fondo transparente por defecto */
+}
+
+/*
+   Efecto hover (al pasar el ratón) para los enlaces del nav.
+   Toma el color naranja/rojo de la imagen.
+*/
+nav a:hover {
+    background-color: #e94560;
+    /* Fondo rojo/naranja */
+    color: #ffffff;
+    /* Texto blanco para contraste */
+    transform: scale(1.05);
+    /* Ligero aumento de tamaño */
+    box-shadow: 0 0 15px rgba(233, 69, 96, 0.6);
+    /* Resplandor */
+}
+
+/*
+   Estilo para el enlace activo (página actual).
+   Se puede agregar con una clase "active" en el HTML.
+*/
+nav a.active {
+    background-color: #e94560;
+    color: #fff;
+    pointer-events: none;
+    /* Evita que se pueda hacer clic (opcional) */
+}
+/* ============================================
+   ESTILOS PARA EL NAV (menú horizontal)
+   ============================================ */
+
+/* 1. Eliminar viñetas y márgenes por defecto de la lista */
+nav ul {
+    list-style: none;        /* Quita los puntos de la lista */
+    margin: 0;               /* Elimina margen exterior */
+    padding: 0;              /* Elimina relleno interior */
+    display: flex;           /* Activa Flexbox para alinear horizontalmente */
+    flex-wrap: wrap;         /* Permite que los items bajen a otra línea si no caben */
+    gap: 10px;               /* Espacio entre cada item (opcional) */
+    justify-content: center; /* Centra los items horizontalmente */
+    background-color: #0f3460; /* Color de fondo del menú (opcional) */
+    padding: 10px 20px;      /* Espaciado interior del menú */
+    border-radius: 8px;      /* Bordes redondeados (opcional) */
+}
+
+/* 2. Estilo para cada item de la lista */
+nav ul li {
+    display: inline-block;   /* Asegura que se comporten como elementos en línea */
+    /* O puedes usar: display: flex; si necesitas más control */
+}
+
+/* 3. Estilo para los enlaces (<a>) */
+nav ul li a {
+    display: block;          /* Hace que el enlace ocupe todo el espacio del <li> */
+    color: #eaeaea;          /* Color del texto (blanco/gris claro) */
+    text-decoration: none;   /* Quita el subrayado */
+    padding: 10px 18px;      /* Espaciado interno para que el enlace sea más clicable */
+    border-radius: 6px;      /* Bordes redondeados en los enlaces */
+    font-weight: 600;        /* Texto seminegrita */
+    transition: all 0.3s ease; /* Transición suave para efectos hover */
+}
+
+/* 4. Efecto hover (cuando el mouse pasa por encima) */
+nav ul li a:hover {
+    background-color: #e94560; /* Color de fondo al pasar el mouse (rojo/naranja) */
+    color: #ffffff;            /* Texto blanco para contraste */
+    transform: scale(1.05);    /* Agranda ligeramente el enlace */
+    box-shadow: 0 0 15px rgba(233, 69, 96, 0.5); /* Resplandor */
+}
+
+/* 5. Estilo para el enlace activo (página actual) */
+nav ul li a.active {
+    background-color: #e94560;
+    color: #fff;
+}
+
+/* ============================================
+   SECTION (contenido principal)
+   ============================================ */
+
+/*
+   section: área de contenido principal.
+   Se le da un fondo con cierta transparencia para 
+   que se vea el fondo oscuro, pero con personalidad.
+*/
+section {
+    background: rgba(255, 255, 255, 0.05);
+    /*
+       Fondo blanco con 5% de opacidad, 
+       crea un efecto de "vidrio esmerilado" sutil.
+    */
+    backdrop-filter: blur(2px);
+    /*
+       Desenfoque ligero del fondo detrás (efecto glassmorphism).
+       No compatible con todos los navegadores, pero añade estilo.
+    */
+    padding: 30px 25px;
+    border-radius: 16px;
+    /* Bordes redondeados */
+    border-left: 6px solid #f5c842;
+    /*
+       Borde izquierdo amarillo/naranja 
+       que hace referencia al texto "Tecnologias que usamos".
+    */
+    margin-bottom: 20px;
+    /* Separación con aside y footer */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    /* Sombra para profundidad */
+}
+
+/*
+   Estilo para los títulos dentro de section.
+*/
+section h2 {
+    color: #f5c842;
+    /* Amarillo/naranja */
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    border-bottom: 2px dashed #e94560;
+    /*
+       Línea discontinua inferior en rojo/naranja
+       para dar énfasis.
+    */
+    padding-bottom: 10px;
+}
+
+/*
+   Estilo para párrafos dentro de section.
+*/
+section p {
+    color: #d0d0d8;
+    font-size: 1.05rem;
+    margin-bottom: 15px;
+}
+
+/*
+   Estilo para listas o elementos dentro de section
+   que simulen etiquetas de tecnología (como en la imagen).
+*/
+section .tech-tag {
+    display: inline-block;
+    /* Para que se comporten como bloques en línea */
+    background-color: #16213e;
+    /* Fondo azul oscuro */
+    color: #f5c842;
+    /* Texto amarillo */
+    padding: 6px 18px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 5px 8px 5px 0;
+    border: 1px solid #e94560;
+    /* Borde con el color acento */
+    box-shadow: 0 2px 8px rgba(233, 69, 96, 0.2);
+    transition: 0.2s;
+}
+
+section .tech-tag:hover {
+    background-color: #e94560;
+    color: #fff;
+    transform: translateY(-3px);
+    /* Efecto de elevación */
+}
+
+/* ============================================
+   ASIDE (barra lateral o contenido secundario)
+   ============================================ */
+
+/*
+   aside: se usa para contenido complementario.
+   Se le da un estilo diferente para que se distinga.
+*/
+aside {
+    background: #16213e;
+    /* Azul oscuro sólido */
+    padding: 25px 20px;
+    border-radius: 16px;
+    border-right: 6px solid #e94560;
+    /*
+       Borde derecho en rojo/naranja para 
+       equilibrar con el borde izquierdo de section.
+    */
+    margin-bottom: 20px;
+    color: #c8c8d4;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/*
+   Títulos dentro de aside.
+*/
+aside h3 {
+    color: #f5c842;
+    /* Amarillo/naranja */
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/*
+   Listas o elementos dentro de aside.
+*/
+aside ul {
+    list-style: none;
+    /* Quita viñetas */
+    padding-left: 0;
+}
+
+aside ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(233, 69, 96, 0.2);
+    /* Línea sutil entre items */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/*
+   Pseudoelemento para agregar un ícono visual 
+   (similar a un check o bullet personalizado).
+*/
+aside ul li::before {
+    content: "▹";
+    /* Flecha derecha decorativa */
+    color: #e94560;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* ============================================
+   FOOTER (pie de página)
+   ============================================ */
+
+/*
+   footer: cierre de la página, con colores 
+   que armonizan con el header.
+*/
+footer {
+    background: #0f3460;
+    /* Mismo azul que el nav */
+    padding: 20px 25px;
+    border-radius: 0 0 12px 12px;
+    /* Bordes redondeados solo abajo */
+    border-top: 4px solid #e94560;
+    /* Línea superior en rojo/naranja */
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    color: #b0b0c0;
+    font-size: 0.95rem;
+}
+
+/*
+   Estilo para enlaces dentro del footer.
+*/
+footer a {
+    color: #f5c842;
+    /* Amarillo/naranja */
+    text-decoration: none;
+    transition: 0.3s;
+    border-bottom: 1px dotted transparent;
+}
+
+footer a:hover {
+    color: #e94560;
+    /* Cambio a rojo/naranja al pasar el ratón */
+    border-bottom-color: #e94560;
+}
+
+/*
+   Clase para el texto de copyright o información legal.
+*/
+footer .copy {
+    color: #8888a0;
+    font-size: 0.85rem;
+}
+
+/*
+   Grupo de enlaces sociales o secundarios en el footer.
+*/
+footer .social-links {
+    display: flex;
+    gap: 15px;
+}
+
+footer .social-links a {
+    background: #1a1a2e;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    border: 1px solid #2a2a4a;
+}
+
+footer .social-links a:hover {
+    background: #e94560;
+    border-color: #e94560;
+    color: #fff;
+}
+
+/* ============================================
+   RESPONSIVE (ajustes para móviles)
+   ============================================ */
+
+/*
+   Media query para pantallas de hasta 768px de ancho.
+   Reorganiza elementos para mejor visualización en móviles.
+*/
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        /* Apila logo y nav */
+        align-items: center;
+        text-align: center;
+    }
+
+    nav {
+        width: 100%;
+        /* Ocupa todo el ancho */
+        justify-content: center;
+        border-radius: 20px;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    nav a {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+
+    section {
+        padding: 20px 15px;
+    }
+
+    aside {
+        padding: 20px 15px;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    footer .social-links {
+        justify-content: center;
+    }
+}
+
+/*
+   Media query para pantallas muy pequeñas (menos de 480px)
+*/
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    section h2 {
+        font-size: 1.4rem;
+    }
+
+    nav a {
+        font-size: 0.8rem;
+        padding: 4px 10px;
+    }
+
+    .tech-tag {
+        font-size: 0.75rem;
+        padding: 4px 12px;
+    }
+}
