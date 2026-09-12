@@ -1,12 +1,12 @@
 nav ul {
-    list-style-type: none; /* Quitamos las viñetas */
+    list-style-type: none; /* Quitamos las viñetas, tipo de lista nada */
     padding: 0;
     margin: 0;
 }
 
 nav li {
     display: inline; /* Los elementos están en una línea horizontal */
-    margin-right: 20px; /* Espaciado entre ítems */
+    margin-right: 20px; /* Espaciado entre ítems para que no queden pegados */
 }
 
 nav a {
@@ -28,8 +28,47 @@ nav {
     background-color: #f4f4f4; /* Fondo del menú */
     padding: 10px 0;
 }
-
+footer {
+    background-color: #f4f4f4; /* Fondo del pie de página */
+    color:blanchedalmond;
+}
 nav ul {
     display: flex;
     justify-content: center; /* Centrar ítems */
+}
+#caja1{
+    background-color: #000;
+    color:cornflowerblue;
+    font-family: charlemagne;
+    font-size: 15px;
+    font-weight: bold;
+    word-spacing: 5px;
+    padding: 20px;
+    margin-left: 35px;
+    margin-bottom: 20px;
+}
+#caja2{
+    background-color: oldlace;
+    text-shadow: 2px 4px 6px #061e36;
+    letter-spacing: 2px;
+    padding: 20px 0px 6px 40px;
+    margin-bottom: 20px
+}
+#caja3{
+    background-color: darksalmon;
+    padding: 20px;
+    position: relative;
+    left: 20px;
+    right: 20px;
+    top: 40px;
+    bottom: 40px;
+}
+#caja4{
+    position: relative;
+    background-color: #444;
+    left: 20px;
+    right: 20px;
+    top: 40px;
+    bottom: 40px;
+    box-shadow: 2px 7px 5px rgb(137, 13, 3);
 }
