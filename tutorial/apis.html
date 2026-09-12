@@ -2,7 +2,8 @@
 <html>
 
 <head>
-    <meta charset="utf-8" <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tutor HTML5 Apis</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -17,7 +18,7 @@
 
 
     <header>
-        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div id="carouselExampleAutoplayingFirst" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="../imagenes/banner-clase--amarillo-31-08-26.png" class="d-block w-100" alt="...">
@@ -53,13 +54,121 @@
         </ul>
     </nav>
 
-    <section>
-        <h1>Tutor web HTML5 CSS</h1>
-        HTML HAY TAMALES
-        <br>
-        meras apis
+    <section class="container my-4">
+        <h1>Nager.Date API - Días Festivos</h1>
+        <p class="lead">Consulta los días festivos públicos de más de 100 países.</p>
 
+        <div class="row g-3 mb-4">
+            <div class="col-md-4">
+                <label class="form-label">País</label>
+                <select id="selectPais" class="form-select">
+                    <option value="CO">Colombia</option>
+                    <option value="US">Estados Unidos</option>
+                    <option value="ES">España</option>
+                    <option value="MX">México</option>
+                    <option value="AR">Argentina</option>
+                    <option value="DE">Alemania</option>
+                    <option value="FR">Francia</option>
+                    <option value="JP">Japón</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Año</label>
+                <input type="number" id="inputAnio" class="form-control" value="2026" min="2020" max="2030">
+            </div>
+            <div class="col-md-3 d-flex align-items-end">
+                <button id="btnConsultar" class="btn btn-primary w-100">Consultar Festivos</button>
+            </div>
+        </div>
+
+        <div id="resultado" class="row g-3">
+            <em class="text-muted">Selecciona un país y un año, luego presiona Consultar...</em>
+        </div>
     </section>
+
+    <script>
+        const API_URL = 'https://date.nager.at/api/v3';
+        const resultado = document.getElementById('resultado');
+
+        // Nombres de meses en español
+        const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+            'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+
+        // Formatear fecha YYYY-MM-DD a "DD de Mes de YYYY"
+        function formatearFecha(fechaStr) {
+            const [año, mes, dia] = fechaStr.split('-');
+            return `${parseInt(dia)} de ${meses[parseInt(mes) - 1]} de ${año}`;
+        }
+
+        // Traducir tipo de festivo
+        function traducirTipo(tipos) {
+            const mapa = {
+                'Public': 'Público',
+                'Bank': 'Bancario',
+                'School': 'Escolar',
+                'Authorities': 'Autoridades',
+                'Optional': 'Opcional',
+                'Observance': 'Conmemorativo'
+            };
+            return tipos.map(t => mapa[t] || t).join(', ');
+        }
+
+        async function consultarFestivos() {
+            const pais = document.getElementById('selectPais').value;
+            const anio = document.getElementById('inputAnio').value;
+
+            resultado.innerHTML = '<p>Cargando festivos...</p>';
+
+            try {
+                const resp = await fetch(`${API_URL}/PublicHolidays/${anio}/${pais}`);
+                if (!resp.ok) throw new Error('Error HTTP: ' + resp.status);
+
+                const festivos = await resp.json();
+
+                if (!festivos || festivos.length === 0) {
+                    resultado.innerHTML = '<p class="text-muted">No se encontraron festivos para esta selección.</p>';
+                    return;
+                }
+
+                // Ordenar por fecha
+                festivos.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+                // Construir las tarjetas
+                let html = '';
+                festivos.forEach(festivo => {
+                    const esNacional = festivo.global ? '🌍 Nacional' : '📍 Regional';
+                    const esFijo = festivo.fixed ? '📌 Fijo' : '🔄 Móvil';
+
+                    html += `
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm border-start border-4 border-primary">
+                            <div class="card-body">
+                                <h5 class="card-title">${festivo.localName}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">${festivo.name}</h6>
+                                <p class="card-text mb-1">
+                                    <strong>📅 ${formatearFecha(festivo.date)}</strong>
+                                </p>
+                                <p class="card-text small text-muted mb-0">
+                                    ${esNacional} · ${esFijo}
+                                </p>
+                                <p class="card-text small text-muted">
+                                    <span class="badge bg-secondary">${traducirTipo(festivo.types || [])}</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                });
+                resultado.innerHTML = html;
+
+            } catch (error) {
+                resultado.innerHTML = `<p class="text-danger">❌ Error: ${error.message}</p>`;
+            }
+        }
+
+        // Eventos
+        document.getElementById('btnConsultar').addEventListener('click', consultarFestivos);
+    </script>
     <aside></aside>
     <footer> Contactos con Yensy y Melany </footer>
 </body>
