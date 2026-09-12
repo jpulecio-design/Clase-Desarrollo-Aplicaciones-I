@@ -37,38 +37,156 @@
 -->
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="utf-8"
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Tutor HTML5 CSS</title>
-	<link rel="stylesheet" href="css/estilo2.css">	
+    <meta charset="utf-8" <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tutor HTML5 Inicio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="css/estilo2.css">
 </head>
+
 <body>
 
 
-	<header>
-		<img src="../imagenes/banner-clase-31-08-26.png" width="100%" height="300px">
-	</header>
-		<nav>
-			<ul>
-				<li><a href="home.html"> Inicio </a>  </li> 
-				<li><a href="conceptos.html"> Conceptos</a></li> 
-				<li><a href="Apis.html"> Api </a></li> 
-				<li><a href="Frontend.html"> Frontend </a></li> 
-				<li><a href="backend.html"> backend </a></li> 
-				<li><a href="cascada.html"> CSS </a></li> 
-				<li><a href="datos.html"> Presentacion </a></li> 
-			</ul>
-		</nav>
-	
-	<section>
-		<h1>Tutor web HTML5 CSS</h1>
-		HTML HAY TAMALES
-		<br>
-		CSS hOJAS DE ESTILO EN CASCADA
+    <header>
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="../imagenes/banner-clase--amarillo-31-08-26.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="../imagenes/banner-clase-31-08-26.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="../imagenes/banner-clase-azul-31-08-26.png" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="home.html"> Inicio </a> </li>
+            <li><a href="conceptos.html"> Conceptos</a></li>
+            <li><a href="apis.html"> Api </a></li>
+            <li><a href="frontend.html"> Frontend </a></li>
+            <li><a href="backend.html"> backend </a></li>
+            <li><a href="cascada.html"> CSS </a></li>
+            <li><a href="datos.html"> Presentacion </a></li>
+        </ul>
+    </nav>
+    <h2 class="text-center my-4"> Slider vs Carrusel </h2>
 
-	</section>
-	<aside></aside>
-	<footer> Contactos con Yensy y Melany </footer>
+    <!-- Contenedor que centra la tabla perfectamente -->
+    <div class="d-flex justify-content-center">
+        <table class="table table-bordered table-responsive">
+
+            <tr>
+                <th colspan="2" class="text-center"> Slider </th>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <div id="carouselExample" class="carousel slide">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../imagenes/papyrus-chad.gif" class="d-block w-60 mx-auto" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../imagenes/calavera-imagen-animada-dedo-gif.gif" class="d-block w-60 mx-auto"
+                                    alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../imagenes/rotating-skull-muevelo.gif" class="d-block w-60 mx-auto"
+                                    alt="...">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <td class="p-3"> Año 1990-2000 </td>
+                <td class="p-3"> Slider (Deslizador): Es un componente de interfaz que muestra una serie de contenidos
+                    (imágenes, texto
+                    o videos) de forma secuencial, generalmente ocupando un lugar destacado (como la cabecera) y
+                    mostrando
+                    un elemento principal a la vez. </td>
+            </tr>
+
+            <tr>
+                <th colspan="2" class="text-center">Carrusel </th>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <!-- Nota: Cambié el ID aquí para que no se duplique con el del header -->
+                    <div id="carouselExampleAutoplayingTabla" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../imagenes/css.png" class="d-block w-60 mx-auto" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../imagenes/html5.png" class="d-block w-60 mx-auto" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../imagenes/JS.png" class="d-block w-60 mx-auto" alt="...">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button"
+                            data-bs-target="#carouselExampleAutoplayingTabla" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button"
+                            data-bs-target="#carouselExampleAutoplayingTabla" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <td class="p-3"> Año 2005 </td>
+                <td class="p-3"> Es una variante del slider que muestra múltiples elementos simultáneamente en una fila
+                    horizontal. El
+                    usuario puede avanzar o retroceder para ver el siguiente bloque de elementos, simulando el
+                    movimiento de
+                    un tiovivo. </td>
+            </tr>
+        </table>
+    </div>
+    </table>
+    <section>
+        <h1>Tutor web HTML5 CSS</h1>
+        HTML HAY TAMALES
+        <br>
+        CSS hOJAS DE ESTILO EN CASCADA
+
+    </section>
+    <aside></aside>
+    <footer> Contactos con Yensy y Melany </footer>
 </body>
+
 </html>
