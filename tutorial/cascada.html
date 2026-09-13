@@ -1,51 +1,483 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
+
 <head>
-	<meta charset="utf-8"
+	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Tutor HTML5 CSS</title>
-	<link rel="stylesheet" href="css/estilo2.css">	
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+		crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="css/estilo2.css">
 </head>
+
 <body>
 
-
 	<header>
-		<img src="../imagenes/banner-clase-31-08-26.png" width="100%" height="300px">
+		<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="../imagenes/banner-clase--amarillo-31-08-26.png" class="d-block w-100" alt="...">
+				</div>
+				<div class="carousel-item">
+					<img src="../imagenes/banner-clase-31-08-26.png" class="d-block w-100" alt="...">
+				</div>
+				<div class="carousel-item">
+					<img src="../imagenes/banner-clase-azul-31-08-26.png" class="d-block w-100" alt="...">
+				</div>
+			</div>
+			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+				data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+				data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+		</div>
 	</header>
-		<nav>
-			<ul>
-				<li><a href="home.html"> Inicio </a>  </li> 
-				<li><a href="conceptos.html"> Conceptos</a></li> 
-				<li><a href="Apis.html"> Api </a></li> 
-				<li><a href="Frontend.html"> Frontend </a></li> 
-				<li><a href="backend.html"> backend </a></li> 
-				<li><a href="cascada.html"> CSS </a></li> 
-				<li><a href="datos.html"> Presentacion </a></li> 
-			</ul>
-		</nav>
-	
-	<section>
-		<h2> Ejemplos CSS</h2>
-		<div id="caja1">
-			prueba de color y texto
 
-		</div>
-		<div id="caja2">Caja 2
-			<br>
-			texto con sombra
+	<nav>
+		<ul>
+			<li><a href="home.html"> Inicio </a> </li>
+			<li><a href="conceptos.html"> Conceptos</a></li>
+			<li><a href="apis.html"> Api </a></li>
+			<li><a href="frontend.html"> Frontend </a></li>
+			<li><a href="backend.html"> Backend </a></li>
+			<li><a href="cascada.html"> CSS </a></li>
+			<li><a href="datos.html"> Presentacion </a></li>
+		</ul>
+	</nav>
 
+	<h2 align="center" class="my-4">CSS - Hojas de Estilo en Cascada</h2>
+
+	<div class="accordion" id="accordionCSS">
+
+		<!-- ============ 1. DEFINICIÓN Y CARACTERÍSTICAS ============ -->
+		<div class="accordion-item">
+			<h2 class="accordion-header">
+				<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+					aria-expanded="true" aria-controls="collapseOne">
+					Definición y Características
+				</button>
+			</h2>
+			<div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionCSS">
+				<div class="accordion-body">
+
+					<table align="center">
+						<tr>
+							<td>
+								<div id="carouselCSS" class="carousel slide" data-bs-ride="carousel">
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+											<img src="../imagenes/css-1.png" class="d-block w-600" alt="CSS 1">
+										</div>
+										<div class="carousel-item">
+											<img src="../imagenes/css-2.png" class="d-block w-600" alt="CSS 2">
+										</div>
+										<div class="carousel-item">
+											<img src="../imagenes/css-3.png" class="d-block w-200" alt="CSS 3">
+										</div>
+									</div>
+									<button class="carousel-control-prev" type="button" data-bs-target="#carouselCSS"
+										data-bs-slide="prev">
+										<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+										<span class="visually-hidden">Previous</span>
+									</button>
+									<button class="carousel-control-next" type="button" data-bs-target="#carouselCSS"
+										data-bs-slide="next">
+										<span class="carousel-control-next-icon" aria-hidden="true"></span>
+										<span class="visually-hidden">Next</span>
+									</button>
+								</div>
+							</td>
+							<td>
+								<section class="concepto">
+									<h3>¿Qué es CSS?</h3>
+
+									<p>
+										<strong>CSS</strong> significa <em>Cascading Style Sheets</em> (Hojas de
+										Estilo en Cascada). Es un lenguaje de <strong>estilos</strong> que se usa
+										para definir la <strong>apariencia visual</strong> de un documento HTML:
+										colores, tipografías, tamaños, márgenes, posiciones, animaciones y diseño
+										responsive.
+									</p>
+
+									<p>
+										CSS <strong>no es un lenguaje de programación</strong>, es un lenguaje de
+										<em>descripción</em>. Su función es separar el <strong>contenido</strong>
+										(HTML) del <strong>diseño</strong> (CSS), lo que facilita el mantenimiento
+										y la reutilización de estilos.
+									</p>
+
+									<h3>¿Desde qué año existe?</h3>
+									<ul>
+										<li>
+											<strong>1994:</strong> Håkon Wium Lie propone la idea de las hojas de
+											estilo en cascada.
+										</li>
+										<li>
+											<strong>1996:</strong> se publica <strong>CSS1</strong>, la primera
+											versión oficial por el W3C.
+										</li>
+										<li>
+											<strong>1998:</strong> aparece <strong>CSS2</strong> con posicionamiento
+											y medios (media queries básicas).
+										</li>
+										<li>
+											<strong>2011 en adelante:</strong> <strong>CSS3</strong> se divide en
+											módulos: animaciones, transiciones, flexbox, grid.
+										</li>
+										<li>
+											<strong>2023+:</strong> nuevas funciones como <em>container queries</em>,
+											<em>nesting</em> y variables modernas.
+										</li>
+									</ul>
+
+									<h3>Características principales</h3>
+									<ul>
+										<li><strong>Cascada:</strong> los estilos se aplican en orden de prioridad
+											(de arriba hacia abajo).</li>
+										<li><strong>Herencia:</strong> algunos estilos se transmiten de padres a
+											hijos.</li>
+										<li><strong>Especificidad:</strong> reglas más específicas ganan sobre las
+											generales.</li>
+										<li><strong>Separación de responsabilidades:</strong> HTML estructura,
+											CSS diseña.</li>
+										<li><strong>Reutilización:</strong> una misma clase puede usarse en muchos
+											elementos.</li>
+										<li><strong>Responsive:</strong> permite adaptar el diseño a cualquier
+											pantalla.</li>
+										<li><strong>Modular:</strong> CSS3 está dividido en módulos independientes.</li>
+									</ul>
+
+									<div class="alert alert-info">
+										<strong> Dato clave:</strong> el nombre "cascada" viene de que si varias
+										reglas aplican al mismo elemento, el navegador decide cuál usar siguiendo
+										un orden jerárquico.
+									</div>
+
+									<footer>
+										Concepto actualizado · <strong>2026</strong>
+									</footer>
+								</section>
+							</td>
+						</tr>
+					</table>
+
+				</div>
+			</div>
 		</div>
-		<span id="caja1">Otra caja con borde
-			texto con sombra
-		</span>
-		<div id="caja3">
-			Caja 3
+
+		<!-- ============ 2. HERRAMIENTAS DE DISTRIBUCIÓN ============ -->
+		<div class="accordion-item">
+			<h2 class="accordion-header">
+				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+					data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+					Herramientas de Distribución
+				</button>
+			</h2>
+			<div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionCSS">
+				<div class="accordion-body">
+
+					<h2 class="text-center my-4">Herramientas de Distribución de CSS</h2>
+					<p class="text-center">
+						Existen varias formas de <strong>escribir y distribuir</strong> CSS en un proyecto.
+						Estas son las más importantes:
+					</p>
+
+					<div class="d-flex justify-content-center">
+						<table class="table table-bordered" style="max-width: 800px;">
+
+							<!-- ===== CSS en línea ===== -->
+							<tr>
+								<th colspan="2" class="text-center bg-danger text-white">CSS en Línea (Inline)</th>
+							</tr>
+							<tr>
+								<th colspan="2" class="text-center p-3">
+									<img src="../imagenes/css-inline.png" alt="CSS Inline" class="img-fluid"
+										style="max-width: 200px;">
+								</th>
+							</tr>
+							<tr>
+								<td class="p-3 align-middle"><strong>Año 1996</strong></td>
+								<td class="p-3">
+									Los estilos se escriben <strong>directamente en la etiqueta HTML</strong>
+									usando el atributo <code>style</code>.
+									<p class="small text-muted mb-0">Ejemplo: <code>&lt;p style="color: red;"&gt;</code>
+									</p>
+								</td>
+							</tr>
+
+							<!-- ===== CSS interno ===== -->
+							<tr>
+								<th colspan="2" class="text-center bg-warning text-dark">CSS Interno (Embedded)</th>
+							</tr>
+							<tr>
+								<th colspan="2" class="text-center p-3">
+									<img src="../imagenes/css-interno.png" alt="CSS Interno" class="img-fluid"
+										style="max-width: 200px;">
+								</th>
+							</tr>
+							<tr>
+								<td class="p-3 align-middle"><strong>Año 1996</strong></td>
+								<td class="p-3">
+									Los estilos se escriben dentro de la etiqueta
+									<code>&lt;style&gt;</code> en el <code>&lt;head&gt;</code> del documento HTML.
+									<p class="small text-muted mb-0">Afecta solo a esa página.</p>
+								</td>
+							</tr>
+
+							<!-- ===== CSS externo ===== -->
+							<tr>
+								<th colspan="2" class="text-center bg-primary text-white">CSS Externo (External)</th>
+							</tr>
+							<tr>
+								<th colspan="2" class="text-center p-3">
+									<img src="../imagenes/css-externo.png" alt="CSS Externo" class="img-fluid"
+										style="max-width: 200px;">
+								</th>
+							</tr>
+							<tr>
+								<td class="p-3 align-middle"><strong>Año 1996</strong></td>
+								<td class="p-3">
+									Los estilos se guardan en un <strong>archivo .css aparte</strong> y se enlazan
+									con <code>&lt;link&gt;</code>.
+									<p class="small text-muted mb-0">Es la forma <strong>recomendada</strong>:
+										reutilizable en todo el sitio.</p>
+								</td>
+							</tr>
+
+							<!-- ===== Preprocesadores ===== -->
+							<tr>
+								<th colspan="2" class="text-center bg-success text-white">Preprocesadores</th>
+							</tr>
+							<tr>
+								<th colspan="2" class="text-center p-3">
+									<img src="../imagenes/css-preprocesadores.png" alt="Preprocesadores"
+										class="img-fluid" style="max-width: 250px;">
+								</th>
+							</tr>
+							<tr>
+								<td class="p-3 align-middle"><strong>2006-actualidad</strong></td>
+								<td class="p-3">
+									Extienden CSS con variables, funciones y anidación. Se compilan a CSS normal.
+									<ul class="mb-2">
+										<li><strong>Sass</strong> (2006) – el más usado.</li>
+										<li><strong>Less</strong> (2009) – popular en Bootstrap.</li>
+										<li><strong>Stylus</strong> (2010) – sintaxis flexible.</li>
+									</ul>
+								</td>
+							</tr>
+
+							<!-- ===== Frameworks CSS ===== -->
+							<tr>
+								<th colspan="2" class="text-center bg-info text-dark">Frameworks CSS</th>
+							</tr>
+							<tr>
+								<th colspan="2" class="text-center p-3">
+									<img src="../imagenes/css-frameworks.png" alt="Frameworks CSS" class="img-fluid"
+										style="max-width: 250px;">
+								</th>
+							</tr>
+							<tr>
+								<td class="p-3 align-middle"><strong>2011-actualidad</strong></td>
+								<td class="p-3">
+									Librerías con estilos predefinidos que aceleran el desarrollo.
+									<ul class="mb-2">
+										<li><strong>Bootstrap</strong> (2011) – el más popular.</li>
+										<li><strong>Tailwind CSS</strong> (2017) – utilidades atómicas.</li>
+										<li><strong>Bulma</strong> (2016) – moderno y ligero.</li>
+										<li><strong>Foundation</strong> (2011) – empresarial.</li>
+									</ul>
+								</td>
+							</tr>
+
+							<!-- ===== Metodologías ===== -->
+							<tr>
+								<th colspan="2" class="text-center bg-secondary text-white">Metodologías CSS</th>
+							</tr>
+							<tr>
+								<th colspan="2" class="text-center p-3">
+									<img src="../imagenes/css-metodologias.png" alt="Metodologías" class="img-fluid"
+										style="max-width: 250px;">
+								</th>
+							</tr>
+							<tr>
+								<td class="p-3 align-middle"><strong>2010-actualidad</strong></td>
+								<td class="p-3">
+									Convenciones para escribir CSS ordenado y escalable.
+									<ul class="mb-2">
+										<li><strong>BEM</strong> – Block, Element, Modifier.</li>
+										<li><strong>OOCSS</strong> – CSS orientado a objetos.</li>
+										<li><strong>SMACSS</strong> – arquitectura escalable.</li>
+										<li><strong>Atomic CSS</strong> – clases pequeñas y reutilizables.</li>
+									</ul>
+									<div class="alert alert-success mb-0">
+										<strong>Regla de oro:</strong> aprende primero <em>CSS puro</em> antes de
+										saltar a un framework o preprocesador.
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+
+				</div>
+			</div>
 		</div>
-		<div id="caja4">
-			Caja 4
+
+		<!-- ============ 3. DEMOSTRACIÓN DE CÓDIGO ============ -->
+		<div class="accordion-item">
+			<h2 class="accordion-header">
+				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+					data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+					Demostración de Código
+				</button>
+			</h2>
+			<div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionCSS">
+				<div class="accordion-body">
+
+					<h3 class="text-center mb-3">Ejemplo práctico de CSS</h3>
+					<p>Este código muestra cómo CSS transforma un HTML simple:</p>
+
+					<!-- ====== BLOQUE DE CÓDIGO ====== -->
+					<pre class="bg-dark text-light p-3 rounded" style="overflow-x:auto;"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Ejemplo CSS&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .tarjeta {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .tarjeta h1 {
+            color: #764ba2;
+            margin-bottom: 10px;
+        }
+
+        .tarjeta p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .boton {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 25px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .boton:hover {
+            background: #764ba2;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="tarjeta"&gt;
+        &lt;h1&gt;Hola CSS &lt;/h1&gt;
+        &lt;p&gt;Este diseño fue creado únicamente con CSS: colores, sombras, bordes redondeados y transiciones.&lt;/p&gt;
+        &lt;button class="boton"&gt;Haz clic aquí&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+					<!-- ====== DEMO EN VIVO ====== -->
+					<h4 class="mt-4">Demo funcional (así se ve en vivo)</h4>
+					<div class="border rounded p-4 text-center"
+						style="background: linear-gradient(135deg, #667eea, #764ba2); padding: 40px !important;">
+
+						<div
+							style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); text-align: center; max-width: 400px; margin: 0 auto;">
+							<h1 style="color: #764ba2; margin-bottom: 10px;">Hola CSS </h1>
+							<p style="color: #555; line-height: 1.6;">
+								Este diseño fue creado únicamente con CSS: colores, sombras, bordes
+								redondeados y transiciones.
+							</p>
+							<button id="btn-css-demo"
+								style="display: inline-block; margin-top: 15px; padding: 10px 25px; background: #667eea; color: white; border: none; border-radius: 25px; cursor: pointer; transition: background 0.3s ease;"
+								onmouseover="this.style.background='#764ba2'"
+								onmouseout="this.style.background='#667eea'" onclick="cambiarMensajeCSS()">
+								Haz clic aquí
+							</button>
+							<p id="mensaje-css" class="mt-3 text-success fw-bold"></p>
+						</div>
+					</div>
+
+					<h4 class="mt-4">¿Qué hace este código?</h4>
+					<ul>
+						<li><strong>body:</strong> aplica fondo con gradiente y centra el contenido con Flexbox.</li>
+						<li><strong>.tarjeta:</strong> crea la tarjeta blanca con bordes redondeados y sombra.</li>
+						<li><strong>.boton:</strong> da estilo al botón con color y transición al pasar el mouse.</li>
+						<li><strong>:hover:</strong> pseudoclase que cambia el color cuando el mouse pasa encima.</li>
+						<li><strong>transition:</strong> suaviza el cambio de color del botón.</li>
+						<li><strong>box-shadow:</strong> agrega profundidad visual a la tarjeta.</li>
+					</ul>
+
+					<h4 class="mt-4">Conceptos CSS usados en el ejemplo</h4>
+					<ul>
+						<li><strong>Selectores:</strong> <code>body</code>, <code>.tarjeta</code>, <code>.boton</code>
+						</li>
+						<li><strong>Propiedades:</strong> <code>color</code>, <code>background</code>,
+							<code>padding</code>
+						</li>
+						<li><strong>Flexbox:</strong> <code>display: flex</code> para centrar elementos.</li>
+						<li><strong>Pseudoclases:</strong> <code>:hover</code> para interacción.</li>
+						<li><strong>Transiciones:</strong> <code>transition</code> para animaciones suaves.</li>
+						<li><strong>Gradientes:</strong> <code>linear-gradient</code> para fondos con degradado.</li>
+					</ul>
+
+					<div class="alert alert-info">
+						<strong>Tip:</strong> abre las <em>DevTools</em> del navegador con <kbd>F12</kbd> y
+						modifica los estilos en vivo. Es la mejor forma de aprender CSS.
+					</div>
+
+				</div>
+			</div>
 		</div>
-	</section>
+
+	</div>
+
 	<aside></aside>
 	<footer> Contactos con Yensy y Melany </footer>
+
+	<script>
+		function cambiarMensajeCSS() {
+			const mensaje = document.getElementById('mensaje-css');
+			mensaje.textContent = '¡Funciona! CSS + JavaScript juntos ';
+
+			// Efecto de desaparecer después de 2 segundos
+			setTimeout(() => {
+				mensaje.textContent = '';
+			}, 2000);
+		}
+	</script>
+
 </body>
+
 </html>
