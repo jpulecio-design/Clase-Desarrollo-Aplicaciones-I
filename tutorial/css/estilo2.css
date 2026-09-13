@@ -1,41 +1,309 @@
+/* ============================================
+   ESTILO2.CSS - Paleta basada en los banners
+   Azul oscuro + rojo + amarillo + azul claro
+   ============================================ */
+
+/* ---------- RESET Y BASE ---------- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0B1A2E;
+    /* Azul muy oscuro del banner */
+    color: #F5F5F5;
+    /* Texto claro */
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* ---------- NAVEGACION ---------- */
+nav {
+    background-color: #142B4A;
+    /* Azul oscuro medio */
+    padding: 12px 0;
+    border-bottom: 3px solid #D62828;
+    /* Línea roja de acento */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
 nav ul {
-    list-style-type: none; /* Quitamos las viñetas, tipo de lista nada */
+    list-style-type: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
 nav li {
-    display: inline; /* Los elementos están en una línea horizontal */
-    margin-right: 20px; /* Espaciado entre ítems para que no queden pegados */
+    display: inline;
 }
 
 nav a {
-    text-decoration: none; /* Quitar subrayado */
-    color: #000; /* Color del texto */
-    padding: 5px 10px; /* Espaciado interno */
-    transition: background-color 0.3s; /* Suavizar el cambio de fondo */
+    text-decoration: none;
+    color: #F5F5F5;
+    /* Texto claro */
+    padding: 8px 14px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
 }
-
 
 nav a:hover {
-    background-color: #ddd; /* Color de fondo al pasar el cursor */
-    border-radius: 5px; /* Bordes redondeados */
+    background-color: #D62828;
+    /* Rojo al pasar el cursor */
+    color: #FFFFFF;
+    border-radius: 5px;
 }
 
-
-
-nav {
-    background-color: #f4f4f4; /* Fondo del menú */
-    padding: 10px 0;
+nav a:active {
+    background-color: #F4B400;
+    /* Amarillo al hacer clic */
+    color: #0B1A2E;
 }
+
+/* ---------- ENCABEZADOS ---------- */
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: #F4B400;
+    /* Amarillo cálido para títulos */
+    text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+    border-bottom: 2px solid #2196F3;
+    /* Línea azul clara debajo */
+    padding-bottom: 8px;
+    margin-top: 25px;
+}
+
+/* ---------- ENLACES GENERALES ---------- */
+a {
+    color: #2196F3;
+    /* Azul claro para enlaces */
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #F4B400;
+    /* Amarillo al pasar el cursor */
+}
+
+/* ---------- ACORDEON (Bootstrap) ---------- */
+.accordion-item {
+    background-color: #142B4A;
+    border: 1px solid #2196F3;
+    margin-bottom: 8px;
+}
+
+.accordion-button {
+    background-color: #142B4A;
+    color: #F5F5F5;
+    font-weight: bold;
+    border: none;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #D62828;
+    /* Rojo cuando está abierto */
+    color: #FFFFFF;
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 3px rgba(244, 180, 0, 0.5);
+    /* Foco amarillo */
+}
+
+.accordion-button::after {
+    filter: invert(1);
+    /* Flecha blanca */
+}
+
+.accordion-body {
+    background-color: #0B1A2E;
+    color: #F5F5F5;
+}
+
+/* ---------- TABLAS ---------- */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    color: #F5F5F5;
+}
+
+table th {
+    background-color: #142B4A;
+    color: #F4B400;
+    border: 1px solid #2196F3;
+    padding: 10px;
+}
+
+table td {
+    background-color: #0B1A2E;
+    border: 1px solid #2196F3;
+    padding: 10px;
+}
+
+table tr:hover td {
+    background-color: #142B4A;
+    /* Fila resaltada */
+}
+
+/* ---------- ALERTAS BOOTSTRAP ---------- */
+.alert-info {
+    background-color: #142B4A;
+    color: #F5F5F5;
+    border-left: 5px solid #2196F3;
+}
+
+.alert-success {
+    background-color: #142B4A;
+    color: #F5F5F5;
+    border-left: 5px solid #F4B400;
+}
+
+.alert-warning {
+    background-color: #142B4A;
+    color: #F5F5F5;
+    border-left: 5px solid #D62828;
+}
+
+/* ---------- BLOQUES DE CODIGO ---------- */
+pre {
+    background-color: #06111F !important;
+    color: #F4B400 !important;
+    border-left: 5px solid #D62828;
+    padding: 15px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+code {
+    color: #2196F3;
+}
+
+/* ---------- FOOTER ---------- */
 footer {
-    background-color: #f4f4f4; /* Fondo del pie de página */
-    color:blanchedalmond;
+    background-color: #142B4A;
+    color: #F5F5F5;
+    padding: 25px 20px;
+    margin-top: 30px;
+    border-top: 3px solid #F4B400;
+    text-align: center;
 }
-nav ul {
-    display: flex;
-    justify-content: center; /* Centrar ítems */
+
+footer h3,
+footer h4 {
+    color: #F4B400;
+    margin-bottom: 10px;
 }
+
+footer a {
+    display: inline-block;
+    color: #2196F3;
+    text-decoration: none;
+    margin: 4px 8px;
+    padding: 6px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+footer a:hover {
+    background-color: #D62828;
+    color: #FFFFFF;
+}
+
+/* ---------- ASIDE ---------- */
+aside {
+    background-color: #06111F;
+    color: #F5F5F5;
+    padding: 15px;
+    border-left: 4px solid #D62828;
+}
+
+/* ---------- BOTONES BOOTSTRAP ---------- */
+.btn-primary {
+    background-color: #2196F3;
+    border-color: #2196F3;
+}
+
+.btn-primary:hover {
+    background-color: #F4B400;
+    border-color: #F4B400;
+    color: #0B1A2E;
+}
+
+.btn-success {
+    background-color: #F4B400;
+    border-color: #F4B400;
+    color: #0B1A2E;
+}
+
+.btn-success:hover {
+    background-color: #D62828;
+    border-color: #D62828;
+    color: #FFFFFF;
+}
+
+.btn-outline-secondary {
+    color: #F5F5F5;
+    border-color: #F5F5F5;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #F5F5F5;
+    color: #0B1A2E;
+}
+
+/* ---------- CLASES PERSONALIZADAS (las que usas en los HTML) ---------- */
+.concepto {
+    padding: 15px;
+}
+
+.dato {
+    background-color: #142B4A;
+    border-left: 5px solid #F4B400;
+    padding: 12px;
+    margin: 12px 0;
+    border-radius: 4px;
+}
+
+.ejemplo {
+    background-color: #142B4A;
+    border-left: 5px solid #2196F3;
+    padding: 12px;
+    margin: 12px 0;
+    border-radius: 4px;
+    font-style: italic;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    h1,
+    h2 {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+}
+
+/* Estilos para las cajas 
 #caja1{
     background-color: #000;
     color:cornflowerblue;
@@ -72,3 +340,4 @@ nav ul {
     bottom: 40px;
     box-shadow: 2px 7px 5px rgb(137, 13, 3);
 }
+*/
