@@ -136,8 +136,8 @@
                 // Construir las tarjetas
                 let html = '';
                 festivos.forEach(festivo => {
-                    const esNacional = festivo.global ? '🌍 Nacional' : '📍 Regional';
-                    const esFijo = festivo.fixed ? '📌 Fijo' : '🔄 Móvil';
+                    const esNacional = festivo.global ? ' Nacional' : ' Regional';
+                    const esFijo = festivo.fixed ? ' Fijo' : ' Móvil';
 
                     html += `
                     <div class="col-md-4">
@@ -146,7 +146,7 @@
                                 <h5 class="card-title">${festivo.localName}</h5>
                                 <h6 class="card-subtitle mb-2 text-muted">${festivo.name}</h6>
                                 <p class="card-text mb-1">
-                                    <strong>📅 ${formatearFecha(festivo.date)}</strong>
+                                    <strong> ${formatearFecha(festivo.date)}</strong>
                                 </p>
                                 <p class="card-text small text-muted mb-0">
                                     ${esNacional} · ${esFijo}
@@ -162,7 +162,7 @@
                 resultado.innerHTML = html;
 
             } catch (error) {
-                resultado.innerHTML = `<p class="text-danger">❌ Error: ${error.message}</p>`;
+                resultado.innerHTML = `<p class="text-danger"> Error: ${error.message}</p>`;
             }
         }
 
@@ -170,7 +170,12 @@
         document.getElementById('btnConsultar').addEventListener('click', consultarFestivos);
     </script>
     <aside></aside>
-    <footer> Contactos con Yensy y Melany </footer>
+    <footer>
+        <h4> Correo de contacto </h4>
+        <a href="mailto: jpulecio@unimayor.edu.co"> Correo pule </a>
+        <h3> Fuera de nuestro sistema </h3>
+        <a href="https://www.unimayor.edu.co"> Mi universidad </a>
+    </footer>
 </body>
 
 </html>
