@@ -303,12 +303,16 @@ aside {
     }
 }
 
+/* ---------- SUBTÍTULOS h5 (estilo coherente con la paleta) ---------- */
 h5 {
-    border-width: 10px;
-    border-style: inset;
-    border-color: greenyellow;
-    background: beige;
+    color: #F4B400;
+    border-left: 4px solid #D62828;
+    background-color: #142B4A;
+    padding: 8px 12px;
     border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
 #redondear {
@@ -318,18 +322,19 @@ h5 {
     width: 700px;
 
 }
-#texto{
-    font-family: fuente_pizza;
+
+#texto {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 39px;
-    color:#FFFFFF
+    color: #FFFFFF;
 }
-#bloque2
-{
+
+#bloque2 {
     text-align: center;
 }
-#bloque3
-{
-    margin: left;
+
+#bloque3 {
+    margin-left: 20px;
 }
 
 /* Estilos para las cajas 
