@@ -7719,7 +7719,230 @@ sessionStorage.clear();</code></pre>
 						diseños
 						profesionales. Recuerda que HTML <em>estructura</em> y CSS <em>da estilo</em>.
 					</div>
+					<!-- ============================================================ -->
+					<!-- ============ VÍDEO EN HTML5 ================================ -->
+					<!-- ============================================================ -->
+					<hr class="my-5">
+					<h3 class="text-center mb-4"> Vídeo en HTML5</h3>
 
+					<!-- ====== DIFERENTES ESTÁNDARES DE VÍDEO ====== -->
+					<h4>Diferentes estándares de vídeo</h4>
+					<p>
+						Aunque el código HTML5 para la inserción de vídeo directamente en HTML5 es muy sencillo,
+						todavía tiene un único inconveniente. <strong>No todos los navegadores aceptan todos los
+							formatos de vídeo existentes</strong>. De hecho, de los 3 estándares existentes, el único
+						navegador que los acepta a todos es <strong>Chrome</strong>.
+					</p>
+					<p>
+						Así que, si queremos que el vídeo se pueda visualizar en todos los navegadores tendremos que
+						añadir el mismo vídeo en distintos formatos.
+					</p>
+					<p>
+						Actualmente existen <strong>3 estándares de vídeo</strong> que utilizan códecs diferentes y
+						que vienen impulsados por grandes empresas:
+					</p>
+
+					<ul>
+						<li>
+							<strong>MP4</strong> (ficheros con extensión <code>.mp4</code> o <code>.mov</code>) que
+							bajo licencia utiliza el códec <strong>H264</strong> (el mismo que utiliza Flash). Es
+							impulsado por <em>Apple</em> y <em>Microsoft</em>.
+						</li>
+						<li>
+							<strong>OGG</strong> (ficheros con extensión <code>.ogv</code>) que utiliza el códec
+							<strong>On2VP8</strong> es gratuito. Impulsado por <em>Mozilla</em>, <em>Opera</em> y
+							<em>Firefox</em>.
+						</li>
+						<li>
+							<strong>WebM</strong> (ficheros con extensión <code>.webm</code>) también es gratuito e
+							impulsado por los mismos que apoyan el formato OGG (<em>Mozilla</em>, <em>Opera</em> y
+							<em>Firefox</em>).
+						</li>
+					</ul>
+
+					<!-- ====== COMPATIBILIDAD CON NAVEGADORES ====== -->
+					<h4 class="mt-4">Compatibilidad con navegadores</h4>
+					<p>La tabla de los diferentes formatos de vídeo aceptados por los diferentes navegadores queda así:
+					</p>
+
+					<div class="table-responsive">
+						<table class="table table-bordered table-striped text-center"
+							style="max-width: 700px; margin: 0 auto;">
+							<thead class="table-dark">
+								<tr>
+									<th>Navegador</th>
+									<th>MP4</th>
+									<th>OGG</th>
+									<th>WebM</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th>Firefox</th>
+									<td>—</td>
+									<td>+3.5</td>
+									<td>+4.0</td>
+								</tr>
+								<tr>
+									<th>Chrome</th>
+									<td>+3.0</td>
+									<td>+3.0</td>
+									<td>+3.0</td>
+								</tr>
+								<tr>
+									<th>Opera</th>
+									<td>—</td>
+									<td>+10.5</td>
+									<td>+10.6</td>
+								</tr>
+								<tr>
+									<th>Safari</th>
+									<td>+3.1</td>
+									<td>—</td>
+									<td>—</td>
+								</tr>
+								<tr>
+									<th>IExplorer</th>
+									<td>+IE9</td>
+									<td>—</td>
+									<td>—</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<!-- ====== ETIQUETA VIDEO ====== -->
+					<h4 class="mt-4">Etiqueta <code>&lt;video&gt;</code></h4>
+					<p>El código HTML estándar para visualizar un único formato de vídeo sería:</p>
+
+					<pre class="bg-dark text-light p-3 rounded" style="overflow-x:auto;"><code>&lt;video&gt;
+   &lt;source src="video.ogv" type="video/ogg"/&gt;
+&lt;/video&gt;</code></pre>
+
+					<p>
+						En el tag <code>&lt;video&gt;</code> es posible incorporar un gran número de atributos que
+						nos ayudan a poder controlar mejor el video, como son:
+					</p>
+
+					<ul>
+						<li><strong>width:</strong> Indica la anchura del vídeo, expresada en píxeles (px) o en
+							porcentaje (%)</li>
+						<li><strong>height:</strong> Indica la altura del vídeo, expresada en píxeles (px) o en
+							porcentaje (%)</li>
+						<li><strong>controls:</strong> Establece si tendrá la barra de navegación (play, stop,
+							volumen...) o no</li>
+						<li><strong>autoplay:</strong> Indica si el vídeo se inicia detenido o ya aparece por defecto
+							reproduciéndose</li>
+						<li><strong>loop:</strong> Establece si al acabar el vídeo, éste debe volver a empezar o no</li>
+						<li><strong>muted:</strong> Indica si el audio se reproduce o se reproduce sin audio</li>
+						<li><strong>preload:</strong> Indica si el vídeo se empieza a cargar cuando el navegador carga
+							la página html</li>
+						<li><strong>poster:</strong> Da la posibilidad de establecer una imagen (jpg, gif o png) como
+							fotograma inicial del video</li>
+					</ul>
+
+					<p>
+						Por lo tanto, si utilizásemos todos los atributos, el código anterior quedaría de la
+						siguiente manera:
+					</p>
+
+					<pre class="bg-dark text-light p-3 rounded" style="overflow-x:auto;"><code>&lt;video width="800" height="600" controls autoplay loop poster="fotograma.png"&gt;
+   &lt;source src="video.ogv" type="video/ogg"/&gt;
+&lt;/video&gt;</code></pre>
+
+					<p>
+						Si queremos que el vídeo se pueda visualizar desde cualquier navegador (que soporte HTML5),
+						tenemos que añadir a este código más posibilidades y por lo tanto tenemos que tener el vídeo
+						grabado en diferentes formatos.
+					</p>
+
+					<p>El código HTML completo quedaría así:</p>
+
+					<pre class="bg-dark text-light p-3 rounded" style="overflow-x:auto;"><code>&lt;video width="800" height="600" controls autoplay loop poster="fotograma.png"&gt;
+   &lt;source src="video.ogv" type="video/ogg"/&gt;
+   &lt;source src="video.mp4" type="video/mp4"/&gt;
+   &lt;source src="video.webm" type="video/webm"/&gt;
+   &lt;p&gt;Tu navegador no soporta HTML5&lt;/p&gt;
+&lt;/video&gt;</code></pre>
+
+					<!-- ====== EJEMPLO PRÁCTICO ====== -->
+					<h4 class="mt-4">Ejemplo práctico</h4>
+					<p>
+						Si además queremos asegurarnos de que el vídeo también se podrá visualizar en navegadores
+						antiguos tendremos que añadir la posibilidad de visualizar el vídeo en el formato de
+						<strong>Flash</strong> (<code>.flv</code>), que es soportado por todos los navegadores,
+						quedando el código de la siguiente manera:
+					</p>
+
+					<pre class="bg-dark text-light p-3 rounded" style="overflow-x:auto;"><code>&lt;video width="800" height="600" controls autoplay loop poster="fotograma.png"&gt;
+   &lt;source src="video.ogv" type="video/ogg"/&gt;
+   &lt;source src="video.mp4" type="video/mp4"/&gt;
+   &lt;source src="video.webm" type="video/webm"/&gt;
+
+   &lt;object width="800" height="600" data="video.flv"&gt;
+   &lt;param name="movie" value="video.flv"&gt;
+   &lt;embed src="video.flv" width="800" height="600"&gt;
+   &lt;/object&gt;
+
+   &lt;p&gt;Tu navegador no soporta HTML5&lt;/p&gt;
+&lt;/video&gt;</code></pre>
+
+					<div class="alert alert-info">
+						En este ejemplo se han utilizado únicamente los atributos <code>width</code>,
+						<code>height</code>, <code>controls</code> y <code>poster</code>, evitando utilizar la
+						opción <code>autoplay</code> (ya que no nos interesa que el video se reproduzca
+						automáticamente al cargar la página).
+					</div>
+
+					<!-- ====== VIDEO DE YOUTUBE ====== -->
+					<h4 class="mt-4">Añadir un vídeo de Youtube</h4>
+					<p>Para añadir un vídeo de Youtube lo único que tenemos que hacer es:</p>
+
+					<ol>
+						<li>Ir a la web de <a href="https://www.youtube.com" target="_blank">www.youtube.com</a> y
+							acceder al vídeo que quieras añadir a tu web.</li>
+						<li>Hacer clic con el botón derecho del ratón sobre el vídeo</li>
+						<li>Seleccionar la opción <strong>"Copiar código de inserción"</strong>.</li>
+						<li>
+							Ya dentro del editor de HTML, crear un <code>DIV</code> y pegar dentro el contenido que
+							se ha copiado en el punto anterior, que será algo parecido al siguiente código:
+						</li>
+					</ol>
+
+					<pre class="bg-dark text-light p-3 rounded" style="overflow-x:auto;"><code>&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/ubdEvOOVOJw?si=reu615z-x6uJ3QQF"
+						title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;</code></pre>
+					<pre class="bg-dark text-light p-3 rounded" style="overflow-x:auto;"><iframe width="560" height="315" src="https://www.youtube.com/embed/ubdEvOOVOJw?si=reu615z-x6uJ3QQF"
+						title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></pre>
+					<!-- ====== EJEMPLO VISUAL EN VIVO ====== -->
+					<h4 class="mt-4">Ejemplo visual en vivo</h4>
+					<div class="border rounded p-4 bg-light text-center">
+						<p class="mb-3"><strong>Reproductor de vídeo HTML5 con controles:</strong></p>
+						<video width="100%" style="max-width: 600px;" controls poster="../imagenes/kaguya.png">
+							<source
+								src="../videos/劇場版『チェンソーマン レゼ篇』オープニングムービー 　主題歌：米津玄師「IRIS OUT」“Chainsaw Man – The Movie- Reze Arc” – Opening Movie (via DW YouTube Downloader).mp4"
+								type="video/mp4">
+							<source src="../videos/ejemplo.webm" type="video/webm">
+							<source src="../videos/ejemplo.ogv" type="video/ogg">
+							<p>Tu navegador no soporta HTML5</p>
+						</video>
+						<p class="small text-muted mt-2">
+							Si no tienes un archivo de vídeo propio, coloca uno en la carpeta <code>videos/</code>
+							con los nombres <code>ejemplo.mp4</code>, <code>ejemplo.webm</code> y
+							<code>ejemplo.ogv</code>.
+						</p>
+					</div>
+
+					<div class="alert alert-success mt-4">
+						<strong>Consejo:</strong> para máxima compatibilidad, convierte siempre tus vídeos a los tres
+						formatos (<code>MP4</code>, <code>WebM</code> y <code>OGG</code>) y colócalos en una carpeta
+						<code>videos/</code> dentro de tu proyecto. Si el vídeo es de terceros, usa
+						<code>&lt;iframe&gt;</code>
+						de YouTube o Vimeo.
+					</div>
 				</div>
 			</div>
 		</div>
