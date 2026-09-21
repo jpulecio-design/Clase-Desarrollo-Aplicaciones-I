@@ -375,3 +375,69 @@ h5 {
     box-shadow: 2px 7px 5px rgb(137, 13, 3);
 }
 */
+
+/* ============================================================
+   NUEVO: IMÁGENES DE CONTENIDO DEL MISMO TAMAÑO
+   (los banners del <header> NO se tocan)
+   ============================================================ */
+
+/* Carruseles que están dentro de tablas (home, conceptos, frontend, backend, css):
+   todos ocupan el mismo ancho */
+td>.carousel,
+th>.carousel {
+    width: 420px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Todas las fotos de esos carruseles con la misma altura.
+   object-fit: contain = la imagen se ve completa, sin deformarse ni recortarse */
+.accordion-body .carousel-item img,
+table .carousel-item img {
+    width: 100% !important;
+    height: 300px;
+    object-fit: contain;
+    background-color: #06111F;
+    border-radius: 6px;
+}
+
+/* Logos de las tablas (HTML5, CSS, JS, Node, Python, PHP...): mismo cuadro para todos.
+   El !important es para ganarle al max-width que tienen escrito en línea */
+table .img-fluid {
+    width: 160px;
+    height: 160px;
+    max-width: 100% !important;
+    object-fit: contain;
+}
+
+/* ============================================================
+   NUEVO: TEXTO LEGIBLE EN LAS CAJAS CLARAS (bg-light)
+   El body tiene texto blanco, y sobre fondo claro no se leía
+   ============================================================ */
+.bg-light {
+    color: #212529;
+}
+
+.bg-light h1,
+.bg-light h2,
+.bg-light h3,
+.bg-light h4,
+.bg-light h6 {
+    color: #142B4A;
+    text-shadow: none;
+}
+
+/* ============================================================
+   NUEVO: AUTOVALIDACIÓN VISUAL DEL FORMULARIO (cascada.html)
+   :user-invalid / :user-valid solo se activan después de que
+   el usuario escribe, así no aparece todo en rojo al cargar
+   ============================================================ */
+.form-flash input[required]:user-invalid {
+    border-color: #D62828;
+    box-shadow: 0 0 5px #D62828;
+}
+
+.form-flash input[required]:user-valid {
+    border-color: #198754;
+    box-shadow: 0 0 5px #198754;
+}
