@@ -45,7 +45,7 @@
 
 	<nav>
 		<ul>
-			<li><a href="home.html"> Inicio </a> </li>
+			<li><a href="home.html"> Inicio </a></li>
 			<li><a href="conceptos.html"> Conceptos</a></li>
 			<li><a href="apis.html"> Api </a></li>
 			<li><a href="frontend.html"> Frontend </a></li>
@@ -778,24 +778,25 @@ que se separan automáticamente con espacio antes y después.&lt;/p&gt;
 						<h4 class="mt-5">Incluir el código CSS dentro del HTML</h4>
 						<p> Si añadimos el código CSS dentro del mismo fichero HTML (dentro del
 
-							<head>), como aspecto positivo, podemos decir que no necesitamos tener 2 ficheros, ya que
-								todo está en el mismo fichero HTML.
-								Como punto negativo (o no en algunos casos) es que dicho estilo únicamente afectará al
-								fichero HTML en el que se coloque el código CSS. Lo cual implica que si tenemos
-								múltiples ficheros HTML que tienen que usar los mismos estilos, dicho código se tendría
-								que copiar y pegar en cada uno de los ficheros HTML de manera independiente.
-								Este código CSS se añade dentro del apartado
+							&lt;head&gt;), como aspecto positivo, podemos decir que no necesitamos tener 2 ficheros, ya
+							que
+							todo está en el mismo fichero HTML.
+							Como punto negativo (o no en algunos casos) es que dicho estilo únicamente afectará al
+							fichero HTML en el que se coloque el código CSS. Lo cual implica que si tenemos
+							múltiples ficheros HTML que tienen que usar los mismos estilos, dicho código se tendría
+							que copiar y pegar en cada uno de los ficheros HTML de manera independiente.
+							Este código CSS se añade dentro del apartado
 
-								<head>, y debe estar dentro de la etiqueta style:
+							&lt;head&gt;, y debe estar dentro de la etiqueta style:
 						</p>
-						<pre class="bg-dark text-light p-3 rounded" style="overflow-x:auto;"><code><style type="text/css">
-</style>&lt;style type="text/css"&gt; &lt;/style&gt;</code></pre>
+						<pre class="bg-dark text-light p-3 rounded"
+							style="overflow-x:auto;"><code>&lt;style type="text/css"&gt; &lt;/style&gt;</code></pre>
 						<p>Siguiendo el ejemplo anterior, el código completo quedaría de la siguiente manera: </p>
-						<pre class="bg-dark text-light p-3 rounded" style="overflow-x:auto;"><code><style type="text/css">
-</style>&lt;head&gt; &lt;style type="text/css"&gt;body{
+						<pre class="bg-dark text-light p-3 rounded" style="overflow-x:auto;"><code>&lt;head&gt; &lt;style type="text/css"&gt;body{
       background-color:olive;
       color:white;
     }&lt;/style&gt;&lt;/head&gt;</code></pre>
+
 						<!-- ============================================================ -->
 						<!-- ============ TIPOS DE PROPIEDADES CSS ===================== -->
 						<!-- ============================================================ -->
@@ -1162,13 +1163,15 @@ a:hover {
 							Dominar los selectores y las propiedades básicas es la base para luego aprender Flexbox,
 							Grid y frameworks como Bootstrap.
 						</div>
+
 						<h4 class="mt-5">Favicon</h4>
 						<p> Un favicon es un icono para ponerle a tu web en la web como tipo foto de perfil. Para
 							tenerlo buscas favicon en internet y creas tu icon mediante pixelart, luego lo importas a
 							tu proyecto en las carpetas de imagenes y en el head de tu html pones este link: </p>
-						<pre class="bg-dark text-light p-3 rounded" style="overflow-x:auto;"><code><style type="text/css">
-</style>&lt;link rel="shortcut icon" href="carpeta/favicon.ico" type="image/x-icon" /"&gt;</code></pre>
+						<pre class="bg-dark text-light p-3 rounded"
+							style="overflow-x:auto;"><code>&lt;link rel="shortcut icon" href="carpeta/favicon.ico" type="image/x-icon" /&gt;</code></pre>
 					</div>
+
 					<!-- ============================================================ -->
 					<!-- ============ LÍNEAS SEPARADORAS HORIZONTALES =============== -->
 					<!-- ============================================================ -->
@@ -1468,6 +1471,7 @@ border-bottom-left-radius: 10px;</code></pre>
 						<code>background-color</code> y <code>padding</code> para crear tarjetas, botones y cajas
 						con esquinas suaves. Es una de las técnicas más usadas en el diseño web moderno.
 					</div>
+
 					<!-- ============================================================ -->
 					<!-- ============ SOMBRAS DE <div> (CAJAS) ====================== -->
 					<!-- ============================================================ -->
@@ -1684,6 +1688,7 @@ border-bottom-left-radius: 10px;</code></pre>
 						<strong>profundidad</strong> y <strong>relieve</strong> a tarjetas, botones y menús.
 						Úsalas con moderación: un exceso de sombras puede hacer que el diseño se vea saturado.
 					</div>
+
 					<!-- ============================================================ -->
 					<!-- ============ LAS PALABRAS MÁGICAS (FONDOS CSS) ============= -->
 					<!-- ============================================================ -->
@@ -2599,6 +2604,7 @@ align-content: space-around;    /* espacio alrededor */</code></pre>
 						columnas y hacer que todo se adapte a móvil sin media queries. Aprende bien
 						<code>justify-content</code> y <code>align-items</code>: resuelven el 80% de los casos.
 					</div>
+
 					<!-- ============================================================ -->
 					<!-- ============ POSICIONAMIENTO DE LAS CAJAS ================== -->
 					<!-- ============================================================ -->
@@ -2885,6 +2891,7 @@ align-content: space-around;    /* espacio alrededor */</code></pre>
 						Y si usas <code>absolute</code> dentro de un contenedor, asegúrate de que el padre tenga
 						<code>position: relative</code> para evitar que se coloque en un lugar inesperado.
 					</div>
+
 					<!-- ============================================================ -->
 					<!-- ============ TRANSFORM ===================================== -->
 					<!-- ============================================================ -->
@@ -3331,6 +3338,7 @@ align-content: space-around;    /* espacio alrededor */</code></pre>
 						cambios. Por ejemplo, puedes hacer que un botón crezca al pasar el mouse con
 						<code>transform: scale(1.1);</code> y una transición suave.
 					</div>
+
 					<!-- ============================================================ -->
 					<!-- ============ FORMULARIO ==================================== -->
 					<!-- ============================================================ -->
@@ -3868,6 +3876,7 @@ input:valid {
 						<code>type="email"</code>, <code>min</code>/<code>max</code> y <code>pattern</code> hacen
 						que el navegador valide solo. Aprovéchalos antes de escribir scripts personalizados.
 					</div>
+
 					<!-- ============================================================ -->
 					<!-- ============ TRANSITION ==================================== -->
 					<!-- ============================================================ -->
@@ -4329,6 +4338,7 @@ transition: width 2s ease-out 0.5s;</code></pre>
 						con <code>transform</code> para crear animaciones fluidas y profesionales sin necesidad
 						de JavaScript.
 					</div>
+
 					<!-- ============================================================ -->
 					<!-- ============ COLUMNAS DE TEXTO ============================= -->
 					<!-- ============================================================ -->
@@ -4771,6 +4781,7 @@ transition: width 2s ease-out 0.5s;</code></pre>
 						<code>column-span: all;</code> si quieres que un título ocupe todas las columnas, y con
 						media queries para reducir el número de columnas en móvil.
 					</div>
+
 					<!-- ============================================================ -->
 					<!-- ============ AUDIO ========================================= -->
 					<!-- ============================================================ -->
@@ -5044,6 +5055,7 @@ transition: width 2s ease-out 0.5s;</code></pre>
 						Además, el <code>autoplay</code> suele estar bloqueado en navegadores modernos por
 						políticas de privacidad: solo funciona tras una interacción del usuario.
 					</div>
+
 					<!-- ============================================================ -->
 					<!-- ============ COLORES, TRANSPARENCIAS Y DEGRADADOS ========== -->
 					<!-- ============================================================ -->
@@ -5578,6 +5590,7 @@ color: #FF6347;</code></pre>
 							—por partes iguales— por el azul con código de color <code>#1162ac</code>.
 						</p>
 					</div>
+
 					<!-- ============================================================ -->
 					<!-- ============ ANIMATION ===================================== -->
 					<!-- ============================================================ -->
@@ -6120,6 +6133,7 @@ color: #FF6347;</code></pre>
 						final. Recuerda no abusar de ellas: demasiadas animaciones saturan la vista y distraen
 						del contenido.
 					</div>
+
 					<!-- ============================================================ -->
 					<!-- ============ ¿QUÉ SON LAS IMÁGENES SVG? ==================== -->
 					<!-- ============================================================ -->
@@ -7055,6 +7069,7 @@ color: #FF6347;</code></pre>
 						usas <strong>Flexbox</strong> y <strong>Grid</strong>, tendrás sitios web que se adaptan
 						a cualquier pantalla sin esfuerzo.
 					</div>
+
 					<!-- ============================================================ -->
 					<!-- ============ CONTENIDO EDITABLE POR EL USUARIO ============= -->
 					<!-- ============================================================ -->
@@ -7250,6 +7265,7 @@ color: #FF6347;</code></pre>
 						entre sesiones, o con <code>alert()</code> como hemos visto aquí para recuperar el
 						contenido. Es la base de editores como Google Docs o Medium.
 					</div>
+
 					<!-- ============================================================ -->
 					<!-- ============ GUARDAR DE DATOS CON LOCALSTORAGE ============= -->
 					<!-- ============================================================ -->
@@ -7554,7 +7570,8 @@ sessionStorage.clear();</code></pre>
 
 					<!-- Línea 5 -->
 					<h6 class="mt-3">
-						<strong><code>document.write("Visitas: " + localStorage.veces + " veces.");</code></strong></h6>
+						<strong><code>document.write("Visitas: " + localStorage.veces + " veces.");</code></strong>
+					</h6>
 					<p>
 						Finalmente escribe en el documento (o sea en la página web) el texto <em>"Visitas: "</em>
 						seguido del dato que ha leído en líneas anteriores y después le añade <em>"veces."</em>
@@ -7706,25 +7723,29 @@ sessionStorage.clear();</code></pre>
 				</div>
 			</div>
 		</div>
-		<aside></aside>
-		<footer>
-			<h4> Correo de contacto </h4>
-			<a href="mailto: jpulecio@unimayor.edu.co"> Correo pule </a>
-			<h3> Fuera de nuestro sistema </h3>
-			<a href="https://www.unimayor.edu.co"> Mi universidad </a>
-		</footer>
 
-		<script>
-			function cambiarMensajeCSS() {
-				const mensaje = document.getElementById('mensaje-css');
-				mensaje.textContent = '¡Funciona! CSS + JavaScript juntos ';
+	</div>
 
-				// Efecto de desaparecer después de 2 segundos
-				setTimeout(() => {
-					mensaje.textContent = '';
-				}, 2000);
-			}
-		</script>
+	<aside></aside>
+
+	<footer>
+		<h4> Correo de contacto </h4>
+		<a href="mailto:jpulecio@unimayor.edu.co"> Correo pule </a>
+		<h3> Fuera de nuestro sistema </h3>
+		<a href="https://www.unimayor.edu.co"> Mi universidad </a>
+	</footer>
+
+	<script>
+		function cambiarMensajeCSS() {
+			const mensaje = document.getElementById('mensaje-css');
+			mensaje.textContent = '¡Funciona! CSS + JavaScript juntos ';
+
+			// Efecto de desaparecer después de 2 segundos
+			setTimeout(() => {
+				mensaje.textContent = '';
+			}, 2000);
+		}
+	</script>
 
 </body>
 

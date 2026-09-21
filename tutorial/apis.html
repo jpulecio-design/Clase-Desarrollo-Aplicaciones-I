@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
@@ -19,7 +19,8 @@
 
 
     <header>
-        <div id="carouselExampleAutoplayingFirst" class="carousel slide" data-bs-ride="carousel">
+        <!-- ID corregido: antes era "carouselExampleAutoplayingFirst" y los botones no funcionaban -->
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="../imagenes/banner-clase--amarillo-31-08-26.png" class="d-block w-100" alt="...">
@@ -54,8 +55,30 @@
             <li><a href="datos.html"> Presentacion </a></li>
         </ul>
     </nav>
-
     <section class="container my-4">
+
+        <!-- ============ ¿QUÉ ES UNA API? ============ -->
+        <div class="dato mb-4">
+            <h2 class="mt-0">¿Qué es una API?</h2>
+            <p>
+                Una <strong>API</strong> (<em>Application Programming Interface</em>, o Interfaz de Programación de
+                Aplicaciones) es un conjunto de reglas que permite que <strong>dos programas se comuniquen entre
+                    sí</strong>. Funciona como un mesero: tu página hace un pedido (<strong>petición</strong>), la API
+                lo lleva al servidor y te devuelve la <strong>respuesta</strong>, normalmente en formato
+                <strong>JSON</strong>.
+            </p>
+            <h3>¿Para qué sirve?</h3>
+            <ul>
+                <li>Usar datos y servicios de otros sin tener que programarlos desde cero.</li>
+                <li>Conectar el <strong>frontend</strong> con el <strong>backend</strong>.</li>
+                <li>Integrar servicios externos: pagos, mapas, clima, días festivos, etc.</li>
+            </ul>
+            <p class="mb-0">
+                <strong>Ejemplo en esta página:</strong> el buscador de abajo le pide a la API
+                <em>Nager.Date</em> los festivos de un país y muestra la respuesta en tarjetas.
+            </p>
+        </div>
+
         <h1>Nager.Date API - Días Festivos</h1>
         <p class="lead">Consulta los días festivos públicos de más de 100 países.</p>
 
@@ -173,7 +196,7 @@
     <aside></aside>
     <footer>
         <h4> Correo de contacto </h4>
-        <a href="mailto: jpulecio@unimayor.edu.co"> Correo pule </a>
+        <a href="mailto:jpulecio@unimayor.edu.co"> Correo pule </a>
         <h3> Fuera de nuestro sistema </h3>
         <a href="https://www.unimayor.edu.co"> Mi universidad </a>
     </footer>
