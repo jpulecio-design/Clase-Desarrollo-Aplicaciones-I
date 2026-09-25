@@ -3345,100 +3345,186 @@ align-content: space-around;    /* espacio alrededor */</code></pre>
 					<h4 class="mt-5">Formulario</h4>
 
 					<p>
-						Los formularios fueron una de las primeras mejoras que se dieron a conocer de HTML5 y de
-						las que más revuelo causaron, sobre todo por su gran capacidad de
-						<strong>autovalidación</strong> de una manera extremadamente fácil y sin necesidad de
-						utilizar JavaScript.
+						Los formularios fueron una de las primeras mejoras que se dieron a conocer de HTML5 y de las que
+						más revuelo causaron, sobre todo por su gran capacidad de autovalidación de una manera
+						extremadamente fácil y sin necesidad de utilizar JavaScript.
 					</p>
 
-					<p>
-						Vamos a hacer un ejemplo práctico de un formulario para registrarse en el club friki de
-						los <strong>"Amigos de Flash Gordon"</strong>.
-					</p>
+					<form action="enviarmail.php" method="post" enctype="multipart/form-data">
+						<table border="5" align="center" cellpadding="8">
 
-					<!-- ============================================================ -->
-					<!-- ============ FORMULARIO DE EJEMPLO ========================= -->
-					<!-- ============================================================ -->
-					<h5 class="mt-4">Formulario de ejemplo</h5>
+							<tr>
+								<th colspan="2" bgcolor="#e3d193"> DATOS PERSONALES </th>
+							</tr>
 
-					<p>
-						Regístrate y disfruta de nuestras increíbles ventajas para poder seguir siendo adicto
-						registrado del glorioso e insuperable Flash Gordon.
-					</p>
+							<!-- ============ TEXTO ============ -->
+							<tr>
+								<th>Nombre </th>
+								<td>
+									<input type="text" name="nombre" value="Fanny" size="40"
+										title="Escribe tu nombre real." autofocus required>
+								</td>
+							</tr>
+							<tr>
+								<th>Apellido</th>
+								<td><input type="text" name="apellido" size="40" required></td>
+							</tr>
 
-					<form action="enviarmail.php" method="post" class="p-3 border rounded bg-light">
-						<div class="mb-3">
-							<label for="nombre" class="form-label"><strong>Tu nombre:</strong></label>
-							<input type="text" class="form-control" id="nombre" size="40"
-								title="Escribe tu nombre real. Es el que aparecerá en tu perfil." name="nombre"
-								autofocus required>
-						</div>
+							<!-- ============ EMAIL ============ -->
+							<tr>
+								<th>Correo electrónico</th>
+								<td>
+									<input type="email" name="mail" placeholder="usuario@dominio.com" size="40"
+										title="Escribe tu correo electrónico." required>
+								</td>
+							</tr>
 
-						<div class="mb-3">
-							<label for="mail" class="form-label"><strong>Correo electrónico:</strong> (*)</label>
-							<input type="email" class="form-control" id="mail" placeholder="usuario@dominio.com"
-								size="40" title="Escribe tu correo electrónico." name="mail" required>
-						</div>
+							<!-- ============ PASSWORD ============ -->
+							<tr>
+								<th>Contraseña</th>
+								<td>
+									<input type="password" name="password" size="20"
+										title="Escribe la contraseña que desees." required>
+								</td>
+							</tr>
 
-						<div class="mb-3">
-							<label for="password" class="form-label"><strong>Contraseña:</strong> (*)</label>
-							<input type="password" class="form-control" id="password" size="20"
-								title="Escribe la contraseña que desees." name="password" required>
-						</div>
+							<!-- ============ TEL ============ -->
+							<tr>
+								<th>Teléfono</th>
+								<td>
+									<input type="tel" name="telefono" placeholder="+57 300 000 0000">
+								</td>
+							</tr>
 
-						<div class="mb-3">
-							<label for="nacimiento" class="form-label"><strong>Fecha de nacimiento:</strong></label>
-							<input type="date" class="form-control" id="nacimiento" value="2000-01-01" name="nacimiento"
-								title="La fecha en la que naciste.">
-						</div>
+							<!-- ============ URL ============ -->
+							<tr>
+								<th>Sitio web personal</th>
+								<td>
+									<input type="url" name="sitio" placeholder="https://miweb.com" size="40">
+								</td>
+							</tr>
 
-						<div class="mb-3">
-							<label class="form-label"><strong>Selecciona tu personaje preferido:</strong></label>
-							<div class="form-check">
-								<input type="radio" class="form-check-input" name="personaje" value="flash" id="p1"
-									checked>
-								<label class="form-check-label" for="p1">Flash Gordon</label>
-							</div>
-							<div class="form-check">
-								<input type="radio" class="form-check-input" name="personaje" value="ming" id="p2">
-								<label class="form-check-label" for="p2">Ming, el despiadado</label>
-							</div>
-							<div class="form-check">
-								<input type="radio" class="form-check-input" name="personaje" value="aura" id="p3">
-								<label class="form-check-label" for="p3">La Princesa Aura</label>
-							</div>
-							<div class="form-check">
-								<input type="radio" class="form-check-input" name="personaje" value="vultan" id="p4">
-								<label class="form-check-label" for="p4">Príncipe Vultan</label>
-							</div>
-							<div class="form-check">
-								<input type="radio" class="form-check-input" name="personaje" value="dale" id="p5">
-								<label class="form-check-label" for="p5">Dale Arden</label>
-							</div>
-						</div>
+							<!-- ============ DATE ============ -->
+							<tr>
+								<th>Fecha de nacimiento</th>
+								<td>
+									<input type="date" name="nacimiento" value="2000-01-01"
+										title="La fecha en la que naciste.">
+								</td>
+							</tr>
 
-						<div class="mb-3">
-							<label for="adiccion" class="form-label"><strong>¿Cuántos cómics de Flash Gordon lees a la
-									semana?</strong></label>
-							<input type="range" class="form-range" id="adiccion" min="1" max="7" value="2" step="1"
-								title="Necesitamos saber cuántos cómics lees." name="adiccion">
-						</div>
+							<!-- ============ SEARCH ============ -->
+							<tr>
+								<th>Buscar en el sitio</th>
+								<td>
+									<input type="search" name="buscar" placeholder="Término a buscar">
+								</td>
+							</tr>
 
-						<div class="mb-3">
-							<label for="color_preferido" class="form-label"><strong>¿Color ideal de las mayas de Flash
-									Gordon?</strong></label>
-							<input type="color" class="form-control form-control-color" id="color_preferido"
-								value="#FF0000" title="Con esta votación decidiremos el color." name="color_preferido">
-						</div>
+							<!-- ============ GENERO (RADIO) ============ -->
+							<tr>
+								<th>Género</th>
+								<td>
+									M <input type="radio" name="genero" value="M" checked>
+									F <input type="radio" name="genero" value="F">
+									T <input type="radio" name="genero" value="T">
+									NS/NC <input type="radio" name="genero" value="NS">
+								</td>
+							</tr>
 
-						<div class="mb-3">
-							<label for="comics" class="form-label"><strong>¿Cuántos cómics de Flash Gordon te inyectas
-									cada día?</strong></label>
-							<input type="number" class="form-control" id="comics" min="100" max="9000" step="1"
-								value="100" title="De momento el ganador." name="comics">
-						</div>
+							<!-- ============ PERSONAJE PREFERIDO (RADIO) ============ -->
+							<tr>
+								<th>Personaje preferido</th>
+								<td>
+									<label><input type="radio" name="personaje" value="flash" checked> Flash
+										Gordon</label><br>
+									<label><input type="radio" name="personaje" value="ming"> Ming, el
+										despiadado</label><br>
+									<label><input type="radio" name="personaje" value="aura"> La Princesa
+										Aura</label><br>
+									<label><input type="radio" name="personaje" value="vultan"> Príncipe
+										Vultan</label><br>
+									<label><input type="radio" name="personaje" value="dale"> Dale Arden</label>
+								</td>
+							</tr>
 
-						<button type="submit" class="btn btn-primary">Enviar los datos</button>
+							<!-- ============ CHECKBOX: INFO QUE TE GUSTARÍA ============ -->
+							<tr>
+								<th>¿Qué información te gustaría recibir?</th>
+								<td>
+									Videojuegos <input type="checkbox" value="juegos" name="video"><br>
+									Series <input type="checkbox" value="series" name="series"><br>
+									Películas <input type="checkbox" value="peliculas" name="peliculas"><br>
+									Deporte <input type="checkbox" value="deporte" name="deporte"><br>
+									Música <input type="checkbox" value="musica" name="musica"><br>
+									Tecnología <input type="checkbox" value="tecnologia" name="tecnologia" checked>
+								</td>
+							</tr>
+
+							<!-- ============ RANGE ============ -->
+							<tr>
+								<th>¿Cuántos cómics lees a la semana?</th>
+								<td>
+									<input type="range" name="adiccion" min="1" max="7" value="2" step="1"
+										title="Necesitamos saber cuántos cómics lees.">
+								</td>
+							</tr>
+
+							<!-- ============ NUMBER ============ -->
+							<tr>
+								<th>¿Cuántos cómics tienes actualmente?</th>
+								<td>
+									<input type="number" name="comics" min="100" max="9000" step="1" value="100"
+										title="De momento el ganador.">
+								</td>
+							</tr>
+
+							<!-- ============ COLOR ============ -->
+							<tr>
+								<th>Color ideal de las mayas</th>
+								<td>
+									<input type="color" name="color_preferido" value="#FF0000"
+										title="Con esta votación decidiremos el color.">
+								</td>
+							</tr>
+
+							<!-- ============ FILE ============ -->
+							<tr>
+								<th>Sube tu imagen o archivo</th>
+								<td>
+									<input type="file" name="archivo" accept="image/*">
+								</td>
+							</tr>
+
+							<!-- ============ HIDDEN ============ -->
+							<tr>
+								<th>Origen (campo oculto)</th>
+								<td>
+									<input type="hidden" name="origen" value="formulario_html5">
+									<span class="small">(Este campo no se ve, pero se envía al servidor)</span>
+								</td>
+							</tr>
+
+							<!-- ============ BOTONES ============ -->
+							<tr>
+								<th>Botones de acción</th>
+								<td>
+									<button type="button" onclick="saludar()">Haz clic aquí y salúdame</button>
+									<input type="button" value="Salúdame!" onclick="saludar()">
+								</td>
+							</tr>
+
+							<!-- ============ SUBMIT / RESET ============ -->
+							<tr>
+								<td align="center">
+									<input type="submit" value="Enviar los datos">
+								</td>
+								<td align="center">
+									<input type="reset" value="Borrar formulario">
+								</td>
+							</tr>
+
+						</table>
 					</form>
 
 					<!-- ============================================================ -->

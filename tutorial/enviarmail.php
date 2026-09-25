@@ -8,6 +8,9 @@
 // Correo que recibirá los registros (cámbialo si quieres)
 $correoDestino = 'jpulecio@unimayor.edu.co';
 
+// Carpeta donde se guardarán los archivos subidos (créala si no existe)
+$carpetaSubidas = __DIR__ . '/uploads/';
+
 // 1. Solo aceptamos envíos por POST (si alguien abre el archivo directo, lo devolvemos)
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: cascada.html');
@@ -22,13 +25,35 @@ function e($texto)
 
 // 2. Leemos cada campo usando su atributo "name"
 $nombre = trim($_POST['nombre'] ?? '');
+$apellido = trim($_POST['apellido'] ?? '');
 $mail = trim($_POST['mail'] ?? '');
 $password = $_POST['password'] ?? '';
+$telefono = trim($_POST['telefono'] ?? '');
+$sitio = trim($_POST['sitio'] ?? '');
 $nacimiento = trim($_POST['nacimiento'] ?? '');
+$buscar = trim($_POST['buscar'] ?? '');
+$genero = $_POST['genero'] ?? '';
 $personaje = $_POST['personaje'] ?? '';
 $adiccion = $_POST['adiccion'] ?? '';
 $color = $_POST['color_preferido'] ?? '';
 $comics = $_POST['comics'] ?? '';
+$origen = trim($_POST['origen'] ?? '');
+
+// Checkboxes (si no se marcan, no llegan; los convertimos en array vacío)
+$intereses = [
+    'video' => 'Videojuegos',
+    'series' => 'Series',
+    'peliculas' => 'Películas',
+    'deporte' => 'Deporte',
+    'musica' => 'Música',
+    'tecnologia' => 'Tecnología',
+];
+$interesesMarcados = [];
+foreach ($intereses as $clave => $etiqueta) {
+    if (!empty($_POST[$clave])) {
+        $interesesMarcados[] = $etiqueta;
+    }
+}
 
 // Valores permitidos para los radio button
 $personajes = [
@@ -39,11 +64,21 @@ $personajes = [
     'dale' => 'Dale Arden',
 ];
 
+$generos = [
+    'M' => 'Masculino',
+    'F' => 'Femenino',
+    'T' => 'Transgénero',
+    'NS' => 'Prefiere no decir',
+];
+
 // 3. Validamos en el servidor (HTML5 valida en el navegador, pero se puede saltar)
 $errores = [];
 
 if ($nombre === '') {
     $errores[] = 'El nombre es obligatorio.';
+}
+if ($apellido === '') {
+    $errores[] = 'El apellido es obligatorio.';
 }
 if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
     $errores[] = 'El correo electrónico no es válido.';
@@ -51,11 +86,20 @@ if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
 if ($password === '') {
     $errores[] = 'La contraseña es obligatoria.';
 }
+if ($telefono !== '' && !preg_match('/^[0-9+\s()-]{7,20}$/', $telefono)) {
+    $errores[] = 'El teléfono no tiene un formato válido.';
+}
+if ($sitio !== '' && !filter_var($sitio, FILTER_VALIDATE_URL)) {
+    $errores[] = 'El sitio web no es una URL válida.';
+}
 if ($nacimiento !== '') {
     $fecha = DateTime::createFromFormat('Y-m-d', $nacimiento);
     if (!$fecha || $fecha->format('Y-m-d') !== $nacimiento) {
         $errores[] = 'La fecha de nacimiento no es válida.';
     }
+}
+if (!array_key_exists($genero, $generos)) {
+    $errores[] = 'Selecciona un género.';
 }
 if (!array_key_exists($personaje, $personajes)) {
     $errores[] = 'Selecciona un personaje de la lista.';
@@ -70,21 +114,55 @@ if (filter_var($comics, FILTER_VALIDATE_INT, ['options' => ['min_range' => 100, 
     $errores[] = 'Los cómics diarios deben estar entre 100 y 9000.';
 }
 
-// 4. Si todo está bien, intentamos enviar el correo
+// 4. Procesamos el archivo subido (si hay)
+$archivoGuardado = '';
+if (!empty($_FILES['archivo']['name']) && $_FILES['archivo']['error'] === UPLOAD_ERR_OK) {
+    // Validamos que sea una imagen real
+    $infoImagen = @getimagesize($_FILES['archivo']['tmp_name']);
+    if ($infoImagen === false) {
+        $errores[] = 'El archivo subido no es una imagen válida.';
+    } else {
+        // Creamos la carpeta si no existe
+        if (!is_dir($carpetaSubidas)) {
+            @mkdir($carpetaSubidas, 0777, true);
+        }
+
+        // Nombre único para evitar sobreescribir
+        $extension = strtolower(pathinfo($_FILES['archivo']['name'], PATHINFO_EXTENSION));
+        $nombreArchivo = 'subida_' . time() . '_' . bin2hex(random_bytes(4)) . '.' . $extension;
+        $rutaDestino = $carpetaSubidas . $nombreArchivo;
+
+        if (move_uploaded_file($_FILES['archivo']['tmp_name'], $rutaDestino)) {
+            $archivoGuardado = $nombreArchivo;
+        } else {
+            $errores[] = 'No se pudo guardar el archivo subido.';
+        }
+    }
+}
+
+// 5. Si todo está bien, intentamos enviar el correo
 $correoEnviado = false;
 if (empty($errores)) {
     // Quitamos saltos de línea del nombre para que nadie meta cabeceras falsas
     $nombreLimpio = str_replace(["\r", "\n"], ' ', $nombre);
 
     $asunto = 'Nuevo registro - Amigos de Flash Gordon';
+
     $mensaje = "Nuevo registro en el club:\n\n"
-        . "Nombre: $nombreLimpio\n"
+        . "Nombre: $nombreLimpio $apellido\n"
         . "Correo: $mail\n"
+        . "Teléfono: " . ($telefono ?: 'No indicado') . "\n"
+        . "Sitio web: " . ($sitio ?: 'No indicado') . "\n"
         . "Fecha de nacimiento: " . ($nacimiento ?: 'No indicada') . "\n"
+        . "Búsqueda interna: " . ($buscar ?: 'Sin búsqueda') . "\n"
+        . "Género: {$generos[$genero]}\n"
         . "Personaje preferido: {$personajes[$personaje]}\n"
+        . "Intereses: " . (empty($interesesMarcados) ? 'Ninguno' : implode(', ', $interesesMarcados)) . "\n"
         . "Cómics por semana: $adiccion\n"
+        . "Cómics diarios: $comics\n"
         . "Color de las mayas: $color\n"
-        . "Cómics diarios: $comics\n";
+        . "Archivo subido: " . ($archivoGuardado ?: 'Ninguno') . "\n"
+        . "Origen: " . ($origen ?: 'No especificado') . "\n";
     // La contraseña NO se envía por correo (por seguridad)
 
     $cabeceras = "From: Tutor Web <no-responder@unimayor.edu.co>\r\n"
@@ -173,7 +251,7 @@ if (empty($errores)) {
         <?php else: ?>
 
             <!-- ============ REGISTRO CORRECTO ============ -->
-            <h2 class="text-center">¡Bienvenido al club, <?= e($nombre) ?>!</h2>
+            <h2 class="text-center">¡Bienvenido al club, <?= e($nombre . ' ' . $apellido) ?>!</h2>
 
             <?php if ($correoEnviado): ?>
                 <div class="alert alert-success">
@@ -188,10 +266,10 @@ if (empty($errores)) {
             <?php endif; ?>
 
             <h3>Datos recibidos</h3>
-            <table class="mb-4">
+            <table class="table table-bordered mb-4">
                 <tr>
-                    <th style="width: 45%;">Nombre</th>
-                    <td><?= e($nombre) ?></td>
+                    <th style="width: 40%;">Nombre completo</th>
+                    <td><?= e($nombre . ' ' . $apellido) ?></td>
                 </tr>
                 <tr>
                     <th>Correo electrónico</th>
@@ -199,20 +277,53 @@ if (empty($errores)) {
                 </tr>
                 <tr>
                     <th>Contraseña</th>
-                    <td><?= str_repeat('•', min(strlen($password), 12)) ?> <span class="small">(no se muestra por
-                            seguridad)</span></td>
+                    <td><?= str_repeat('•', min(strlen($password), 12)) ?>
+                        <span class="small">(no se muestra por seguridad)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Teléfono</th>
+                    <td><?= $telefono !== '' ? e($telefono) : 'No indicado' ?></td>
+                </tr>
+                <tr>
+                    <th>Sitio web</th>
+                    <td>
+                        <?php if ($sitio !== ''): ?>
+                            <a href="<?= e($sitio) ?>" target="_blank"><?= e($sitio) ?></a>
+                        <?php else: ?>
+                            No indicado
+                        <?php endif; ?>
+                    </td>
                 </tr>
                 <tr>
                     <th>Fecha de nacimiento</th>
                     <td><?= $nacimiento !== '' ? e($nacimiento) : 'No indicada' ?></td>
                 </tr>
                 <tr>
+                    <th>Búsqueda interna</th>
+                    <td><?= $buscar !== '' ? e($buscar) : 'Sin búsqueda' ?></td>
+                </tr>
+                <tr>
+                    <th>Género</th>
+                    <td><?= e($generos[$genero]) ?></td>
+                </tr>
+                <tr>
                     <th>Personaje preferido</th>
                     <td><?= e($personajes[$personaje]) ?></td>
                 </tr>
                 <tr>
+                    <th>Información de interés</th>
+                    <td>
+                        <?= empty($interesesMarcados) ? 'Ninguno' : e(implode(', ', $interesesMarcados)) ?>
+                    </td>
+                </tr>
+                <tr>
                     <th>Cómics por semana</th>
                     <td><?= e($adiccion) ?></td>
+                </tr>
+                <tr>
+                    <th>Cómics diarios</th>
+                    <td><?= e($comics) ?></td>
                 </tr>
                 <tr>
                     <th>Color ideal de las mayas</th>
@@ -223,8 +334,21 @@ if (empty($errores)) {
                     </td>
                 </tr>
                 <tr>
-                    <th>Cómics diarios</th>
-                    <td><?= e($comics) ?></td>
+                    <th>Archivo subido</th>
+                    <td>
+                        <?php if ($archivoGuardado !== ''): ?>
+                            <a href="uploads/<?= e($archivoGuardado) ?>" target="_blank">
+                                <img src="uploads/<?= e($archivoGuardado) ?>" alt="Imagen subida"
+                                    style="max-width: 200px; border-radius: 8px;">
+                            </a>
+                        <?php else: ?>
+                            Ninguno
+                        <?php endif; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Origen (campo oculto)</th>
+                    <td><?= $origen !== '' ? e($origen) : 'No especificado' ?></td>
                 </tr>
             </table>
 
